@@ -35,8 +35,8 @@ pkgs.stdenv.mkDerivation {
     ## If anyone figures out why the fallback doesn't work, let me know
     # cp ./beepy-kbd.map $out/share/keymaps # commented out because we copy our own keymap instead
     mkdir -p $out/share/keymaps/
-    cat ${./beepy-kbd.map} > $out/share/keymaps/beepy-kbd.map
-
+    cp ${./beepy-kbd.map} $out/share/keymaps/beepy-kbd.map
+    
     # Install device tree overlay
     mkdir -p $out/boot/overlays/
     cp ./beepy-kbd.dtbo $out/boot/overlays

@@ -46,7 +46,7 @@
                 mkdir $out
                 ${pkgs.dtc}/bin/dtc -@ -I dts -O dtb -o $out/sharp-drm.dtbo ${sharpDriver}/sharp-drm.dts
               '';
-              keyboardDriver = import ./sharp-drm.nix { pkgs = pkgs; kernel = kernel; };
+              keyboardDriver = import ./beepy-kbd.nix { pkgs = pkgs; kernel = kernel; };
             in
             mkIf config.hardware.beepy.enable
               {
@@ -54,7 +54,7 @@
                 boot.extraModulePackages = [ sharpDriver keyboardDriver ];
                 boot.kernelModules = [ "i2c-dev" "sharp-drm" "beepy-kbd" ];
                 console.packages = [ keyboardDriver ];
-                console.keyMap = "beepy-kbd.map";
+                console.keyMap = "beepy-kbd";
                 console.earlySetup = true;
                 hardware.raspberry-pi.config.all = {
                   dt-overlays = {
