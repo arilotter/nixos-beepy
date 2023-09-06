@@ -54,7 +54,7 @@
                 boot.extraModulePackages = [ sharpDriver keyboardDriver ];
                 boot.kernelModules = [ "i2c-dev" "sharp-drm" "beepy-kbd" ];
                 console.packages = [ keyboardDriver ];
-                console.keyMap = "beepy-kbd";
+                console.keyMap = "beepy-kbd.map";
                 console.earlySetup = true;
                 hardware.raspberry-pi.config.all = {
                   dt-overlays = {
