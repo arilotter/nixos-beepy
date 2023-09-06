@@ -51,6 +51,10 @@ Include the module in your NixOS flake.nix, and enable it in your configuration.
   # If you have wired your Beepy yourself, and have a keyboard interrupt pin that isn't the default of "4", you can change it like this:
   # hardware.beepy.irqPin = 3;
 
+  # You can change your framebuffer font!
+  # Pick any one of 10x18, 6x10, 6x8, 7x14, Acorn8x8, MINI4x6, PEARL8x8, ProFont6x11, SUN12x22, SUN8x16, TER16x32, VGA8x16, VGA8x8
+  # hardware.beepy.fbFont = "6x8";
+
 
   # Some other config things you'll need to install NixOS on a Beepy:
   nixpkgs.hostPlatform = "aarch64-linux";
